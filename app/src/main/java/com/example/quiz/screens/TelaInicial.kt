@@ -28,35 +28,35 @@ import androidx.compose.ui.unit.sp
 import com.example.quiz.R
 
 @Composable
-fun TelaInicial(modifier: Modifier = Modifier) {
-
+fun TelaInicial(
+    onComecar: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(Color(0xFF86D8F6))
             .padding(32.dp)
     ) {
-
         Column(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-
             Spacer(modifier = Modifier.height(60.dp))
 
             quiz(
                 modifier = Modifier.size(120.dp)
             )
+
             Spacer(modifier = Modifier.height(45.dp))
 
             Text(
                 modifier = Modifier
                     .padding(top = 30.dp)
                     .fillMaxWidth(),
-                textAlign = TextAlign.Center,
                 text = "QUIZATRON 3000",
+                textAlign = TextAlign.Center,
                 fontSize = 40.sp,
                 fontWeight = FontWeight.Normal,
                 color = Color.Black
@@ -65,7 +65,7 @@ fun TelaInicial(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(45.dp))
 
             Button(
-                onClick = { },
+                onClick = onComecar,
                 modifier = Modifier
                     .width(500.dp)
                     .height(60.dp),
@@ -78,7 +78,7 @@ fun TelaInicial(modifier: Modifier = Modifier) {
                 )
             ) {
                 Text(
-                    text = "COMECAR!",
+                    text = "COMEÇAR!",
                     fontSize = 20.sp,
                     color = Color.Black
                 )
@@ -89,10 +89,9 @@ fun TelaInicial(modifier: Modifier = Modifier) {
 
 @Composable
 fun quiz(modifier: Modifier = Modifier) {
-
     Image(
         painter = painterResource(R.drawable.quiz),
-        contentDescription = "quiz imagem",
+        contentDescription = "Imagem do quiz",
         modifier = modifier
     )
 }
